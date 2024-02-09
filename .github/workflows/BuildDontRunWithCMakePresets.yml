@@ -91,10 +91,8 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
         
     - name: Install Ninja
-      uses: seanmiddleditch/gha-setup-ninja@master
-    # - name: Install Ninja
-    #   shell: bash
-    #   run: ${{ runner.os == 'macOS' && 'brew install ninja' || runner.os == 'Windows' && 'choco install ninja' || 'sudo apt-get install ninja-build' }}
+      shell: bash
+      run: ${{ runner.os == 'macOS' && 'brew install ninja' || runner.os == 'Windows' && 'choco install ninja' || 'sudo apt-get install ninja-build' }}
 
     - name: Cache GTest if it has beed fetched by CMake or else restore it from cache without fetching again
       id: ID-GTest-fetched-cache
@@ -294,10 +292,8 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
         
     - name: Install Ninja
-      uses: seanmiddleditch/gha-setup-ninja@master
-    # - name: Install Ninja
-    #   shell: bash
-    #   run: ${{ runner.os == 'macOS' && 'brew install ninja' || runner.os == 'Windows' && 'choco install ninja' || 'sudo apt-get install ninja-build' }}
+      shell: bash
+      run: ${{ runner.os == 'macOS' && 'brew install ninja' || runner.os == 'Windows' && 'choco install ninja' || 'sudo apt-get install ninja-build' }}
 
     - name: Cache GTest if it has beed fetched by CMake or else restore it from cache without fetching again
       id: ID-GTest-fetched-cache
