@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [master, develop]
 
-env:
-  GTEST_VERSION: 1.13.0
-  
 jobs:
   singleConfig:
     strategy:
@@ -192,7 +189,7 @@ jobs:
         find /usr/local/Cellar/googletest -iname libgmock*.dylib
         find /usr/local/Cellar/googletest -iname GTest?Config.cmake
 
-# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager or Powershell
+# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager nor Powershell
 
     - name: Tool versions
       shell: bash
@@ -393,7 +390,7 @@ jobs:
         find /usr/local/Cellar/googletest -iname libgmock*.dylib
         find /usr/local/Cellar/googletest -iname GTest?Config.cmake
 
-# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager or Powershell
+# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager nor Powershell
 
     - name: Tool versions
       shell: bash

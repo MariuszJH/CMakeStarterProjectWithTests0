@@ -7,7 +7,7 @@ on:
     branches: [master, develop]
 
 env:
-  GTEST_VERSION: 1.13.0
+  projectName: CMakeStarterProjectWithTests0
   
 jobs:
   singleConfig:
@@ -70,6 +70,10 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
+
+    - name: Echo project name
+      shell: bash
+      run: echo ${{env.projectName}}
 
     - name: Install MSVC compiler
       if: ${{matrix.os == 'windows-latest'}}
@@ -179,7 +183,7 @@ jobs:
         find /usr/local/Cellar/googletest -iname libgmock*.dylib
         find /usr/local/Cellar/googletest -iname GTest?Config.cmake
 
-# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager or Powershell
+# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager nor Powershell
 
     - name: Tool versions
       shell: bash
@@ -403,7 +407,7 @@ jobs:
         find /usr/local/Cellar/googletest -iname libgmock*.dylib
         find /usr/local/Cellar/googletest -iname GTest?Config.cmake
 
-# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager or Powershell
+# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager nor Powershell
 
     - name: Tool versions
       shell: bash
@@ -596,7 +600,7 @@ jobs:
         find /usr/local/Cellar/googletest -iname libgmock*.dylib
         find /usr/local/Cellar/googletest -iname GTest?Config.cmake
 
-# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager or Powershell
+# WINDOWS: on Windows GTest should be fetched by CMake (it is cached above in External/googletest); do not install it by package manager nor Powershell
 
     - name: Tool versions
       shell: bash
